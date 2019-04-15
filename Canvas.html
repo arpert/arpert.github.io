@@ -28,9 +28,9 @@
       var lastPt = [0, 0];
       var inDragging = false;
      function drawSome() {
-        var colors = ["red", "blue"];
-        for(i = 0; i < 2; i++) {
-          cname = ["canv0", "canv1"][i];
+        var colors = ["red", "blue", "green"];
+        for(i = 0; i < 3; i++) {
+          cname = ["canv0", "canv1", "canv2"][i];
           var cnv = document.getElementById(cname);
           cx = cnv.getContext("2d");
           cx.clearRect(0, 0, cnv.width, cnv.height);
@@ -92,7 +92,7 @@
       </tr>
     </table>
     <div id="pts"></div>
-    <canvas id="canv2" style="border:solid 1px green;">??</canvas>
+    <canvas id="canv2" style="border:solid 1px green;" width="200" height="150">??</canvas>
     
   </body>
 </html>
