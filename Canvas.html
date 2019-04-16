@@ -110,6 +110,15 @@
 //        ctx.lineTo(rect.x, rect.y);
         ctx.lineTo(rect.x, rect.y);
         ctx.stroke();
+        cx.strokeStyle = "#7f7";
+        cx.setLineDash([1, 1]);
+        ctx.beginPath();
+        ctx.moveTo(rect.x, 0);
+        ctx.lineTo(rect.x, canvas.height);
+        ctx.moveTo(0, rect.y);
+        ctx.lineTo(canvas.width, rect.y);
+        ctx.stroke();
+
         //ctx.fillCircle(rect.startX, rect.startY, 20);
         
       }
@@ -183,7 +192,7 @@
         }
 
         if (event.type == "touchstart" || event.type == "mousedown") {
-          loguj(event.type);//, canvas.parentNode.offsetLeft, canvas.parentNode.offsetTop, canvas.parentNode);
+          loguj(event.type, canvas.parentNode.offsetLeft, canvas.parentNode.offsetTop);
         }
       //  var x = event.layerX;
       //  var y = event.layerY;
