@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
     <style type="text/css">
-      .coord { 
+      .coord {
          text-align: right; 
          width: 60px;
       }
@@ -31,7 +31,7 @@
          position:relative;
          padding: 0;
          vertical-align:top;
-      } 
+      }
 
     </style>
 
@@ -41,7 +41,7 @@
       var lastPt = [0, 0];
       var inDragging = false;
 
-     function loguj(message) {
+      function loguj(message) {
         console.log(arguments);
         var logArea = document.querySelector("#logArea");
         var newLi = document.createElement("li");
@@ -54,10 +54,9 @@
         var children = logArea.getElementsByTagName("li");
         if (children.length > 12)
            children[0].remove();
-     } 
+      }
 
-
-     function drawSome() {
+      function drawSome() {
         var colors = ["red", "blue", "green"];
         for(i = 0; i < 3; i++) {
           var cnv = document.querySelector("#canv" + i);
@@ -118,7 +117,6 @@
         ctx.moveTo(0, rect.y);
         ctx.lineTo(canvas.width, rect.y);
         ctx.stroke();
-
         //ctx.fillCircle(rect.startX, rect.startY, 20);
         
       }
@@ -144,7 +142,7 @@
       }
 
       function onLoad(event) {
-        loguj("onLoad()");
+        loguj("onload()");
         var img0 = document.querySelector("#img0");
         var img1 = document.querySelector("#img1");
         var cnv0 = document.querySelector("#canv0");
@@ -201,7 +199,7 @@
         var x = Math.round(event.clientX - brec.left);
         var y = Math.round(event.clientY - brec.top);
         
-        if (event.targetTouches != null && event.targetTouches.length == 1) { //one finger touche
+        if (event.targetTouches != null && event.targetTouches.length == 1) { //one finger touch
           var touch = event.targetTouches[0];
           x = touch.pageX - canvas.parentNode.offsetLeft;
           y = touch.pageY - canvas.parentNode.offsetTop;
@@ -228,7 +226,6 @@
         }
     //    loguj("rect:", rect)
       }
-
 
     </script>
   </head>
