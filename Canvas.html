@@ -111,7 +111,7 @@
         ctx.lineTo(rect.x, rect.y);
         ctx.stroke();
         cx.strokeStyle = "#7f7";
-        cx.setLineDash([1, 1]);
+        cx.setLineDash([1, 3]);
         ctx.beginPath();
         ctx.moveTo(rect.x, 0);
         ctx.lineTo(rect.x, canvas.height);
@@ -197,7 +197,7 @@
       //  var x = event.layerX;
       //  var y = event.layerY;
         var brec = canvas.getBoundingClientRect();
-        loguj(event.clientX, event.clientY, brec.left, brec.top, brec.right, brec.bottom, "->", Math.round(event.clientX - brec.left), Math.round(event.clientY - brec.top));
+        //loguj(event.clientX, event.clientY, brec.left, brec.top, brec.right, brec.bottom, "->", Math.round(event.clientX - brec.left), Math.round(event.clientY - brec.top));
         var x = Math.round(event.clientX - brec.left);
         var y = Math.round(event.clientY - brec.top);
         
@@ -205,7 +205,7 @@
           var touch = event.targetTouches[0];
           x = touch.pageX - canvas.parentNode.offsetLeft;
           y = touch.pageY - canvas.parentNode.offsetTop;
-          loguj("touch x, y: ", x, y, " | ", touch.pageX, touch.pageY, "/", canvas.offsetLeft, canvas.offsetTop);
+          //loguj("touch x, y: ", x, y, " | ", touch.pageX, touch.pageY, "/", canvas.offsetLeft, canvas.offsetTop);
         }
         
         if (event.type == "touchstart" || event.type == "mousedown") {
