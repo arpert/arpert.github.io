@@ -175,12 +175,14 @@
       }
 
       function touchHandler(event) {
+        event.preventDefault();
+        
 //        loguj("touchHandler(" + event.type + ")")
         if (event.type != "mousemove" || drag) {
-          loguj(event.type, event.clientX, event.clientY);
+          // loguj(event.type, event.clientX, event.clientY);
         }
 
-        if (event.type == "mousedown") {
+        if (event.type == "touchstart" || event.type == "mousedown") {
           loguj(event);//, canvas.parentNode.offsetLeft, canvas.parentNode.offsetTop, canvas.parentNode);
         }
       //  var x = event.layerX;
