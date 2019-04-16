@@ -82,7 +82,7 @@
       }
 
       function draw() {
-        loguj("draw", rect.toString());
+        //loguj("draw", rect.toString());
         ctx = canvas.getContext('2d');
         ctx.strokeStyle = "red";
         ctx.lineWidth = 1;
@@ -192,9 +192,9 @@
         
         if (event.targetTouches != null && event.targetTouches.length == 1) { //one finger touche
           var touch = event.targetTouches[0];
-          x = touch.pageX;
-          y = touch.pageY;
-          loguj("toucg x, y: ", x, y);
+          x = touch.pageX - canvas.offsetLeft;
+          y = touch.pageY - canvas.offsetTop;
+          loguj("touch x, y: ", x, y);
         }
         
         if (event.type == "touchstart" || event.type == "mousedown") {
