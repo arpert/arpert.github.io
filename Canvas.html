@@ -80,7 +80,7 @@
         }
       }
 
-      function draw() {
+      function draw(canvas) {
         //loguj("draw", rect.toString());
         ctx = canvas.getContext('2d');
         ctx.strokeStyle = "red";
@@ -161,19 +161,41 @@
 
       var drag = false;
       var rect = {};
-      var canvas; 
+      var canv0; 
+      var canv1; 
+      var canv2; 
       rect.toString = function() { return "(x:" + this.x + ", y:" + this.y + ", w:" + this.w + ", h: " + this.h + ")" };
 
       function init() {
         loguj("init()");
-        canvas = document.querySelector('#canv2'); 
-        canvas.addEventListener("touchstart", touchHandler, false);
-        canvas.addEventListener("touchmove",  touchHandler, false);
-        canvas.addEventListener("touchend",   touchHandler, false);
-        canvas.addEventListener("mousemove",  touchHandler, false);
-        canvas.addEventListener("mouseup",    touchHandler, false);
-        canvas.addEventListener("mousedown",  touchHandler, false);
-        canvas.addEventListener("mouseout",   touchHandler, false);
+        canv0 = document.querySelector('#canv0'); 
+        canv1 = document.querySelector('#canv1'); 
+        canv2 = document.querySelector('#canv2'); 
+
+        canv0.addEventListener("touchstart", touchHandler, false);
+        canv0.addEventListener("touchmove",  touchHandler, false);
+        canv0.addEventListener("touchend",   touchHandler, false);
+        canv0.addEventListener("mousemove",  touchHandler, false);
+        canv0.addEventListener("mouseup",    touchHandler, false);
+        canv0.addEventListener("mousedown",  touchHandler, false);
+        canv0.addEventListener("mouseout",   touchHandler, false);
+
+        canv1.addEventListener("touchstart", touchHandler, false);
+        canv1.addEventListener("touchmove",  touchHandler, false);
+        canv1.addEventListener("touchend",   touchHandler, false);
+        canv1.addEventListener("mousemove",  touchHandler, false);
+        canv1.addEventListener("mouseup",    touchHandler, false);
+        canv1.addEventListener("mousedown",  touchHandler, false);
+        canv1.addEventListener("mouseout",   touchHandler, false);
+
+        canv2.addEventListener("touchstart", touchHandler, false);
+        canv2.addEventListener("touchmove",  touchHandler, false);
+        canv2.addEventListener("touchend",   touchHandler, false);
+        canv2.addEventListener("mousemove",  touchHandler, false);
+        canv2.addEventListener("mouseup",    touchHandler, false);
+        canv2.addEventListener("mousedown",  touchHandler, false);
+        canv2.addEventListener("mouseout",   touchHandler, false);
+
         rect.x = 0;
         rect.y = 0;
         rect.w = 0;
@@ -183,7 +205,7 @@
 
       function touchHandler(event) {
         event.preventDefault();
-        
+        var canvas = event.target;
 //        loguj("touchHandler(" + event.type + ")")
         if (event.type != "mousemove" || drag) {
           // loguj(event.type, event.clientX, event.clientY);
@@ -212,14 +234,14 @@
           rect.y = y;
           drag = true;
           loguj("coords: ", x, y, canvas.offsetLeft, canvas.offsetTop, rect.x, rect.y);
-          draw();
+          draw(canvas);
         } else if (event.type == "touchmove" || event.type == "mousemove") {
           if (drag) {
             rect.w = x - rect.x;
             rect.h = y - rect.y;
             rect.x = x;
             rect.y = y;
-            draw();
+            draw(canvas);
           }
         } else if (event.type == "touchend" || event.type == "touchcancel" || event.type == "mouseup" || event.type == "mouseout") {
           drag = false;
